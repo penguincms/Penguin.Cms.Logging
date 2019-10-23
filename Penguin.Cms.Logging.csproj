@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Version>2.0.1</Version>
+    <PackageProjectUrl>https://github.com/penguincms/Penguin.Cms.Logging</PackageProjectUrl>
+    <Description>Not Available</Description>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Penguin.Cms.Entities" Version="3.0.3" />
     <PackageReference Include="Penguin.Cms.Errors" Version="1.0.0" />
     <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.0" />
   </ItemGroup>
-
 </Project>
