@@ -1,0 +1,38 @@
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 31.3 ms for C:\Penguin\Repositories\Penguin.Cms.Errors\Penguin.Cms.Errors.Local.csproj.
+  Restore completed in 31.3 ms for C:\Penguin\Repositories\Penguin.Debugging\Penguin.Debugging.Local.csproj.
+  Restore completed in 31.24 ms for C:\Penguin\Repositories\Penguin.Extensions.String\Penguin.Extensions.String.Local.csproj.
+  Restore completed in 31.28 ms for C:\Penguin\Repositories\Penguin.Cms.Entities\Penguin.Cms.Entities.Local.csproj.
+  Restore completed in 32.08 ms for C:\Penguin\Repositories\Penguin.Cms.Logging\Penguin.Cms.Logging.Local.csproj.
+  Restore completed in 31.27 ms for C:\Penguin\Repositories\Penguin.Extensions.Exceptions\Penguin.Extensions.Exceptions.Local.csproj.
+  Restore completed in 31.27 ms for C:\Penguin\Repositories\Penguin.Entities.Abstractions\Penguin.Entities.Abstractions.Local.csproj.
+  Restore completed in 31.29 ms for C:\Penguin\Repositories\Penguin.Auditing.Abstractions\Penguin.Auditing.Abstractions.Local.csproj.
+  Restore completed in 1.28 ms for C:\Penguin\Repositories\Penguin.Messaging.Abstractions\Penguin.Messaging.Abstractions.Local.csproj.
+  Restore completed in 1.34 ms for C:\Penguin\Repositories\Penguin.Reflection.Extensions\Penguin.Reflection.Extensions.Local.csproj.
+  Restore completed in 1.34 ms for C:\Penguin\Repositories\Penguin.Reflection.Abstractions\Penguin.Reflection.Abstractions.Local.csproj.
+  Restore completed in 1.49 ms for C:\Penguin\Repositories\Penguin.Messaging.Core\Penguin.Messaging.Core.Local.csproj.
+  Restore completed in 1.54 ms for C:\Penguin\Repositories\Penguin.Messaging.Logging\Penguin.Messaging.Logging.Local.csproj.
+  Restore completed in 1.7 ms for C:\Penguin\Repositories\Penguin.Persistence.Abstractions\Penguin.Persistence.Abstractions.Local.csproj.
+  Penguin.Extensions.String.Local -> C:\Penguin\Repositories\Penguin.Extensions.String\bin\Release\netstandard2.0\Penguin.Extensions.String.Local.dll
+  Penguin.Reflection.Abstractions.Local -> C:\Penguin\Repositories\Penguin.Reflection.Abstractions\bin\Release\netstandard2.0\Penguin.Reflection.Abstractions.Local.dll
+  Penguin.Entities.Abstractions.Local -> C:\Penguin\Repositories\Penguin.Entities.Abstractions\bin\Release\netstandard2.0\Penguin.Entities.Abstractions.Local.dll
+  Penguin.Extensions.Exceptions.Local -> C:\Penguin\Repositories\Penguin.Extensions.Exceptions\bin\Release\netstandard2.0\Penguin.Extensions.Exceptions.Local.dll
+  Penguin.Messaging.Abstractions.Local -> C:\Penguin\Repositories\Penguin.Messaging.Abstractions\bin\Release\netstandard2.0\Penguin.Messaging.Abstractions.Local.dll
+  Penguin.Auditing.Abstractions.Local -> C:\Penguin\Repositories\Penguin.Auditing.Abstractions\bin\Release\netstandard2.0\Penguin.Auditing.Abstractions.Local.dll
+  Penguin.Reflection.Extensions.Local -> C:\Penguin\Repositories\Penguin.Reflection.Extensions\bin\Release\netstandard2.0\Penguin.Reflection.Extensions.Local.dll
+  Penguin.Debugging.Local -> C:\Penguin\Repositories\Penguin.Debugging\bin\Release\netstandard2.0\Penguin.Debugging.Local.dll
+  Penguin.Messaging.Core.Local -> C:\Penguin\Repositories\Penguin.Messaging.Core\bin\Release\netstandard2.0\Penguin.Messaging.Core.Local.dll
+  Penguin.Persistence.Abstractions.Local -> C:\Penguin\Repositories\Penguin.Persistence.Abstractions\bin\Release\netstandard2.0\Penguin.Persistence.Abstractions.Local.dll
+  Penguin.Cms.Entities.Local -> C:\Penguin\Repositories\Penguin.Cms.Entities\bin\Release\netstandard2.0\Penguin.Cms.Entities.Local.dll
+  Penguin.Messaging.Logging.Local -> C:\Penguin\Repositories\Penguin.Messaging.Logging\bin\Release\netstandard2.0\Penguin.Messaging.Logging.Local.dll
+  Penguin.Cms.Errors.Local -> C:\Penguin\Repositories\Penguin.Cms.Errors\bin\Release\netstandard2.0\Penguin.Cms.Errors.Local.dll
+  Penguin.Cms.Logging.Local -> C:\Penguin\Repositories\Penguin.Cms.Logging\bin\Release\netstandard2.0\Penguin.Cms.Logging.Local.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.50
+
