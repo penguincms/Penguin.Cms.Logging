@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Penguin.Cms.Logging.Local</name>
+        <name>Penguin.Cms.Logging</name>
     </assembly>
     <members>
         <member name="M:Penguin.Cms.Logging.Extensions.LogEntryRepositoryExtensions.GetByCaller(Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},System.String)">
