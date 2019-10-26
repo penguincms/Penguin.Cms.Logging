@@ -7,8 +7,7 @@
     <Description>Not Available</Description>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Cms.Entities" Version="3.0.3" />
-    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.0" />
-    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.0" />
+    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.0-63707627121" />
+    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.0-63707652289" />
   </ItemGroup>
 </Project>
