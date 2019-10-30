@@ -9,7 +9,7 @@
     <RootNamespace>Penguin.Cms.Logging</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.1-T9M2XAX" />
-    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.1-T9M2XAX" />
+    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.1-T9M3AAF" />
+    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.1-T9M3AAF" />
   </ItemGroup>
 </Project>
