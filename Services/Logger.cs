@@ -167,7 +167,7 @@ namespace Penguin.Cms.Logging.Services
         {
             if (!this.disposedValue)
             {
-                this.LogEntryRepository.AddOrUpdate(this.Entries.ToArray());
+                this.LogEntryRepository.AddOrUpdateRange(this.Entries);
 
                 this.LogEntryRepository.Commit(WriteContext);
 
