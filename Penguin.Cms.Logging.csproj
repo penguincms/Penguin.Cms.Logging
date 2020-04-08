@@ -11,6 +11,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.1-T9RVMZA" />
-    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.1-T9SPWN8" />
+    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.1-T9UEEAT" />
   </ItemGroup>
 </Project>
