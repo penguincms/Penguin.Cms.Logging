@@ -10,7 +10,7 @@
     <DocumentationFile>Penguin.Cms.Logging.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.1-T9RVMZA" />
-    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.1-T9UEEAT" />
+    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.1-T9UFJ6O" />
+    <PackageReference Include="Penguin.Cms.Errors" Version="1.0.1-T9UFJ6O" />
   </ItemGroup>
 </Project>
