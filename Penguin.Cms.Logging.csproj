@@ -2,7 +2,7 @@
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>5.0.0</Version>
+    <Version>5.0.1</Version>
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Cms.Logging</PackageProjectUrl>
     <Description>Not Available</Description>
     <AssemblyName>Penguin.Cms.Logging</AssemblyName>
@@ -10,7 +10,7 @@
     <DocumentationFile>Penguin.Cms.Logging.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Cms.Errors" Version="5.0.1-TA99DVY" />
-    <PackageReference Include="Penguin.Messaging.Logging" Version="5.0.1-TA99DVY" />
+    <PackageReference Include="Penguin.Cms.Errors" Version="5.0.2-TA9KKLU" />
+    <PackageReference Include="Penguin.Messaging.Logging" Version="5.0.2-TA9KKLU" />
   </ItemGroup>
 </Project>
