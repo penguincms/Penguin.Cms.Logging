@@ -36,14 +36,14 @@ namespace Penguin.Cms.Logging.Services
             this.MessageBus = messageBus;
             this.LogEntryRepository = logEntryRepository;
             this.ErrorRepository = errorRepository;
-            this.FileName = $"Logs\\{Caller}.{SessionStart.ToString("yyyy.MM.dd.HH.mm.ss", CultureInfo.CurrentCulture)}.log";
+            this.FileName = $"Logs\\{this.Caller}.{this.SessionStart.ToString("yyyy.MM.dd.HH.mm.ss", CultureInfo.CurrentCulture)}.log";
 
             if (!Directory.Exists("Logs"))
             {
                 Directory.CreateDirectory("Logs");
             }
 
-            WriteContext = logEntryRepository.WriteContext();
+            this.WriteContext = logEntryRepository.WriteContext();
         }
 
         private string FileName { get; set; }
@@ -75,7 +75,12 @@ namespace Penguin.Cms.Logging.Services
         /// <param name="args">Any format arguments for the string</param>
         public void Log(string toLog, LogLevel type, params object[] args)
         {
-            LogToFile(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
+            if (args is null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            this.LogToFile(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
 
             LogEntry newEntry = new LogEntry
             {
@@ -85,7 +90,7 @@ namespace Penguin.Cms.Logging.Services
                 SessionStart = this.SessionStart
             };
 
-            MessageBus?.Log(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
+            this.MessageBus?.Log(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
 
             if (args.Length > 0)
             {
@@ -112,14 +117,20 @@ namespace Penguin.Cms.Logging.Services
         /// </summary>
         /// <param name="toLog">The preformatted string to log</param>
         /// <param name="args">Optional arguments to be used during string formatting</param>
-        public void LogDebug(string toLog, params object[] args) => this.Log(toLog, LogLevel.Debug, args);
+        public void LogDebug(string toLog, params object[] args)
+        {
+            this.Log(toLog, LogLevel.Debug, args);
+        }
 
         /// <summary>
         /// Logs an error level message to the various recievers
         /// </summary>
         /// <param name="toLog">The preformatted string to log</param>
         /// <param name="args">Optional arguments to be used during string formatting</param>
-        public void LogError(string toLog, params object[] args) => this.Log(toLog, LogLevel.Error, args);
+        public void LogError(string toLog, params object[] args)
+        {
+            this.Log(toLog, LogLevel.Error, args);
+        }
 
         /// <summary>
         /// Logs an exception as an exception level message to the various recievers
@@ -130,7 +141,7 @@ namespace Penguin.Cms.Logging.Services
             Contract.Requires(ex != null);
 
             this.LogError(ex.Message);
-            MessageBus?.Log(ex);
+            this.MessageBus?.Log(ex);
             this.ErrorRepository.AddOrUpdate(new AuditableError(ex));
         }
 
@@ -139,14 +150,20 @@ namespace Penguin.Cms.Logging.Services
         /// </summary>
         /// <param name="toLog">The preformatted string to log</param>
         /// <param name="args">Optional arguments to be used during string formatting</param>
-        public void LogInfo(string toLog, params object[] args) => this.Log(toLog, LogLevel.Info, args);
+        public void LogInfo(string toLog, params object[] args)
+        {
+            this.Log(toLog, LogLevel.Info, args);
+        }
 
         /// <summary>
         /// Logs an warning level message to the various recievers
         /// </summary>
         /// <param name="toLog">The preformatted string to log</param>
         /// <param name="args">Optional arguments to be used during string formatting</param>
-        public void LogWarning(string toLog, params object[] args) => this.Log(toLog, LogLevel.Warning, args);
+        public void LogWarning(string toLog, params object[] args)
+        {
+            this.Log(toLog, LogLevel.Warning, args);
+        }
 
         private bool disposedValue = false; // To detect redundant calls
 
@@ -169,12 +186,12 @@ namespace Penguin.Cms.Logging.Services
             {
                 this.LogEntryRepository.AddOrUpdateRange(this.Entries);
 
-                this.LogEntryRepository.Commit(WriteContext);
+                this.LogEntryRepository.Commit(this.WriteContext);
 
                 this.disposedValue = true;
             }
 
-            WriteContext.Dispose();
+            this.WriteContext.Dispose();
         }
     }
 }
