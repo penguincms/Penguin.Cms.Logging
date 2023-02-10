@@ -46,13 +46,21 @@ namespace Penguin.Cms.Logging.Services
         }
 
         private string FileName { get; set; }
+
         private IWriteContext WriteContext { get; set; }
+
         private string Caller { get; set; }
+
         private IRepository<LogEntry> LogEntryRepository { get; set; }
+
         private IRepository<AuditableError> ErrorRepository { get; set; }
+
         private List<LogEntry> Entries { get; set; }
+
         private string GUID { get; set; }
+
         private DateTime SessionStart { get; set; }
+
         private MessageBus MessageBus { get; set; }
 
         private void LogToFile(string toLog, LogLevel type)
