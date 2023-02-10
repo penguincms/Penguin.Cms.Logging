@@ -20,6 +20,7 @@ namespace Penguin.Cms.Logging.Extensions
         /// <summary>
         /// Gets all messages logged as part of a single session
         /// </summary>
+        /// <param name="repository"></param>
         /// <param name="session">The session id for the messages to be retrieved</param>
         /// <returns>All the messages logged as part of this session</returns>
         public static List<LogEntry> GetBySession(this IRepository<LogEntry> repository, string session)
