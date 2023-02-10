@@ -4,14 +4,15 @@
         <name>Penguin.Cms.Logging</name>
     </assembly>
     <members>
-        <member name="M:Penguin.Cms.Logging.Extensions.LogEntryRepositoryExtensions.GetByCaller(Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},System.String)">
+        <member name="M:Penguin.Cms.Logging.Extensions.LogEntryRepositoryExtensions.GetByCaller(Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.LogEntry},System.String)">
             <summary>
             Gets all messages logged by a given caller (Type.ToString())
             </summary>
+            <param name="repository"></param>
             <param name="caller">The Type.ToString() for the object that did the logging</param>
             <returns>All messages requested by the given caller</returns>
         </member>
-        <member name="M:Penguin.Cms.Logging.Extensions.LogEntryRepositoryExtensions.GetBySession(Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},System.String)">
+        <member name="M:Penguin.Cms.Logging.Extensions.LogEntryRepositoryExtensions.GetBySession(Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.LogEntry},System.String)">
             <summary>
             Gets all messages logged as part of a single session
             </summary>
@@ -19,39 +20,39 @@
             <param name="session">The session id for the messages to be retrieved</param>
             <returns>All the messages logged as part of this session</returns>
         </member>
-        <member name="M:Penguin.Cms.Logging.Extensions.LogEntryRepositoryExtensions.GetDistinctCallers(Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry})">
+        <member name="M:Penguin.Cms.Logging.Extensions.LogEntryRepositoryExtensions.GetDistinctCallers(Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.LogEntry})">
             <summary>
             Gets a list of all the distinct options for callers of the message logger
             To use as parameters in GetByCaller
             </summary>
             <returns>A list of all distinct callers of the message logger</returns>
         </member>
-        <member name="T:Penguin.Cms.Logging.Entities.LogEntry">
+        <member name="T:Penguin.Cms.Logging.LogEntry">
             <summary>
             Represents an individual logged message
             </summary>
         </member>
-        <member name="P:Penguin.Cms.Logging.Entities.LogEntry.Caller">
+        <member name="P:Penguin.Cms.Logging.LogEntry.Caller">
             <summary>
             The Type.ToString of the object that requested the logger managing this entry
             </summary>
         </member>
-        <member name="P:Penguin.Cms.Logging.Entities.LogEntry.Level">
+        <member name="P:Penguin.Cms.Logging.LogEntry.Level">
             <summary>
             The level that this message was logged at
             </summary>
         </member>
-        <member name="P:Penguin.Cms.Logging.Entities.LogEntry.Session">
+        <member name="P:Penguin.Cms.Logging.LogEntry.Session">
             <summary>
             The string ID of the session for this logging entry
             </summary>
         </member>
-        <member name="P:Penguin.Cms.Logging.Entities.LogEntry.SessionStart">
+        <member name="P:Penguin.Cms.Logging.LogEntry.SessionStart">
             <summary>
             The time that this session was initialized
             </summary>
         </member>
-        <member name="P:Penguin.Cms.Logging.Entities.LogEntry.Value">
+        <member name="P:Penguin.Cms.Logging.LogEntry.Value">
             <summary>
             The text value of the body of this log entry
             </summary>
@@ -61,7 +62,7 @@
             A class provided with the intent of logging out messages through as many code paths as possible to ensure nothing is missed
             </summary>
         </member>
-        <member name="M:Penguin.Cms.Logging.Services.Logger.#ctor(System.Object,Penguin.Messaging.Core.MessageBus,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Errors.AuditableError})">
+        <member name="M:Penguin.Cms.Logging.Services.Logger.#ctor(System.Object,Penguin.Messaging.Core.MessageBus,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Errors.AuditableError})">
             <summary>
             Constructs a new instance of this class
             </summary>

@@ -4,7 +4,7 @@ using Penguin.Messaging.Logging;
 using Penguin.Persistence.Abstractions.Attributes.Validation;
 using System;
 
-namespace Penguin.Cms.Logging.Entities
+namespace Penguin.Cms.Logging
 {
     /// <summary>
     /// Represents an individual logged message

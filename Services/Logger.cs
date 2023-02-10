@@ -1,5 +1,4 @@
 ﻿using Penguin.Cms.Errors;
-using Penguin.Cms.Logging.Entities;
 using Penguin.Messaging.Core;
 using Penguin.Messaging.Logging;
 using Penguin.Messaging.Logging.Extensions;
@@ -29,21 +28,21 @@ namespace Penguin.Cms.Logging.Services
             Contract.Requires(logEntryRepository != null);
             Contract.Requires(caller != null);
 
-            this.SessionStart = DateTime.Now;
-            this.GUID = Guid.NewGuid().ToString();
-            this.Caller = caller.GetType().ToString();
-            this.Entries = new List<LogEntry>();
-            this.MessageBus = messageBus;
-            this.LogEntryRepository = logEntryRepository;
-            this.ErrorRepository = errorRepository;
-            this.FileName = $"Logs\\{this.Caller}.{this.SessionStart.ToString("yyyy.MM.dd.HH.mm.ss", CultureInfo.CurrentCulture)}.log";
+            SessionStart = DateTime.Now;
+            GUID = Guid.NewGuid().ToString();
+            Caller = caller.GetType().ToString();
+            Entries = new List<LogEntry>();
+            MessageBus = messageBus;
+            LogEntryRepository = logEntryRepository;
+            ErrorRepository = errorRepository;
+            FileName = $"Logs\\{Caller}.{SessionStart.ToString("yyyy.MM.dd.HH.mm.ss", CultureInfo.CurrentCulture)}.log";
 
             if (!Directory.Exists("Logs"))
             {
-                Directory.CreateDirectory("Logs");
+                _ = Directory.CreateDirectory("Logs");
             }
 
-            this.WriteContext = logEntryRepository.WriteContext();
+            WriteContext = logEntryRepository.WriteContext();
         }
 
         private string FileName { get; set; }
@@ -60,7 +59,7 @@ namespace Penguin.Cms.Logging.Services
         {
             try
             {
-                File.AppendAllText(this.FileName, $"[{type}] {DateTime.Now.ToString("yyyy.MM.dd.HH.mm.ss", CultureInfo.CurrentCulture)}: {toLog}");
+                File.AppendAllText(FileName, $"[{type}] {DateTime.Now.ToString("yyyy.MM.dd.HH.mm.ss", CultureInfo.CurrentCulture)}: {toLog}");
             }
             catch (Exception)
             {
@@ -80,26 +79,19 @@ namespace Penguin.Cms.Logging.Services
                 throw new ArgumentNullException(nameof(args));
             }
 
-            this.LogToFile(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
+            LogToFile(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
 
-            LogEntry newEntry = new LogEntry
+            LogEntry newEntry = new()
             {
-                Caller = this.Caller,
+                Caller = Caller,
                 Level = type,
-                Session = this.GUID,
-                SessionStart = this.SessionStart
+                Session = GUID,
+                SessionStart = SessionStart
             };
 
-            this.MessageBus?.Log(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
+            MessageBus?.Log(string.Format(CultureInfo.CurrentCulture, toLog, args), type);
 
-            if (args.Length > 0)
-            {
-                newEntry.Value = string.Format(CultureInfo.CurrentCulture, toLog, args);
-            }
-            else
-            {
-                newEntry.Value = toLog;
-            }
+            newEntry.Value = args.Length > 0 ? string.Format(CultureInfo.CurrentCulture, toLog, args) : toLog;
 
             newEntry.DateCreated = DateTime.Now;
 
@@ -109,7 +101,7 @@ namespace Penguin.Cms.Logging.Services
 
 #endif
 
-            this.Entries.Add(newEntry);
+            Entries.Add(newEntry);
         }
 
         /// <summary>
@@ -119,7 +111,7 @@ namespace Penguin.Cms.Logging.Services
         /// <param name="args">Optional arguments to be used during string formatting</param>
         public void LogDebug(string toLog, params object[] args)
         {
-            this.Log(toLog, LogLevel.Debug, args);
+            Log(toLog, LogLevel.Debug, args);
         }
 
         /// <summary>
@@ -129,7 +121,7 @@ namespace Penguin.Cms.Logging.Services
         /// <param name="args">Optional arguments to be used during string formatting</param>
         public void LogError(string toLog, params object[] args)
         {
-            this.Log(toLog, LogLevel.Error, args);
+            Log(toLog, LogLevel.Error, args);
         }
 
         /// <summary>
@@ -140,9 +132,9 @@ namespace Penguin.Cms.Logging.Services
         {
             Contract.Requires(ex != null);
 
-            this.LogError(ex.Message);
-            this.MessageBus?.Log(ex);
-            this.ErrorRepository.AddOrUpdate(new AuditableError(ex));
+            LogError(ex.Message);
+            MessageBus?.Log(ex);
+            ErrorRepository.AddOrUpdate(new AuditableError(ex));
         }
 
         /// <summary>
@@ -152,7 +144,7 @@ namespace Penguin.Cms.Logging.Services
         /// <param name="args">Optional arguments to be used during string formatting</param>
         public void LogInfo(string toLog, params object[] args)
         {
-            this.Log(toLog, LogLevel.Info, args);
+            Log(toLog, LogLevel.Info, args);
         }
 
         /// <summary>
@@ -162,17 +154,17 @@ namespace Penguin.Cms.Logging.Services
         /// <param name="args">Optional arguments to be used during string formatting</param>
         public void LogWarning(string toLog, params object[] args)
         {
-            this.Log(toLog, LogLevel.Warning, args);
+            Log(toLog, LogLevel.Warning, args);
         }
 
-        private bool disposedValue = false; // To detect redundant calls
+        private bool disposedValue; // To detect redundant calls
 
         /// <summary>
         /// Disposes of this logger and persists messages to the underlying database for IRepository implementations
         /// </summary>
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -182,16 +174,16 @@ namespace Penguin.Cms.Logging.Services
         /// <param name="disposing">unused</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposedValue)
+            if (!disposedValue)
             {
-                this.LogEntryRepository.AddOrUpdateRange(this.Entries);
+                LogEntryRepository.AddOrUpdateRange(Entries);
 
-                this.LogEntryRepository.Commit(this.WriteContext);
+                LogEntryRepository.Commit(WriteContext);
 
-                this.disposedValue = true;
+                disposedValue = true;
             }
 
-            this.WriteContext.Dispose();
+            WriteContext.Dispose();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Penguin.Cms.Logging.Entities;
-using Penguin.Persistence.Abstractions.Interfaces;
+﻿using Penguin.Persistence.Abstractions.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,6 +9,7 @@ namespace Penguin.Cms.Logging.Extensions
         /// <summary>
         /// Gets all messages logged by a given caller (Type.ToString())
         /// </summary>
+        /// <param name="repository"></param>
         /// <param name="caller">The Type.ToString() for the object that did the logging</param>
         /// <returns>All messages requested by the given caller</returns>
         public static List<LogEntry> GetByCaller(this IRepository<LogEntry> repository, string caller)
