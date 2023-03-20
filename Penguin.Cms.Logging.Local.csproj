@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks>
     <Version>5.0.5</Version>
-    <PackageProjectUrl>https://github.com/PenguinCms/Penguin.Cms.Logging</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/PenguinCMS/Penguin.Cms.Logging</PackageProjectUrl>
     <Description>Not Available</Description>
     <AssemblyName>Penguin.Cms.Logging</AssemblyName>
     <RootNamespace>Penguin.Cms.Logging</RootNamespace>
